@@ -17,6 +17,7 @@ namespace TSM_Project
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            lbusername.Text = Session["User_Name"] as string;
             if (!Page.IsPostBack)
             {
                 populateProject();
@@ -45,13 +46,13 @@ namespace TSM_Project
             string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
             using (SqlConnection con = new SqlConnection(cs))
             {
-               
+                string username = lbusername.Text;
                 string date = txtDate.Text;
                 string strtime = txtstarttime.Text;
                 string endtime = txtendtime.Text;
                 string dd = ddlproject.Text;
                 string ErrMsg = "";
-                if (string.IsNullOrEmpty(date) || string.IsNullOrEmpty(strtime)|| string.IsNullOrEmpty(endtime)|| string.IsNullOrEmpty(dd))
+                if (string.IsNullOrEmpty(date) || string.IsNullOrEmpty(strtime)|| string.IsNullOrEmpty(endtime)|| string.IsNullOrEmpty(dd) || string.IsNullOrEmpty(username))
                 {
                     ErrMsg = ErrMsg + "Please fill all blank fields </br>";
                 }
@@ -61,9 +62,10 @@ namespace TSM_Project
                 {
 
                   //  populateProject();
-                    string sqlString = "INSERT INTO Time_sheet(Date,Start_Time,End_Time,Project_ID) VALUES(@Date,@Start_Time,@End_Time,@Project_ID) ";
+                    string sqlString = "INSERT INTO Time_sheet(Date,Start_Time,End_Time,Project_ID,UserName) VALUES(@Date,@Start_Time,@End_Time,@Project_ID,@UserName) ";
                     con.Open();
                     SqlCommand cmd = new SqlCommand(sqlString, con);
+                    cmd.Parameters.AddWithValue("@UserName", lbusername.Text);
                     cmd.Parameters.AddWithValue("@Date", txtDate.Text);
                     cmd.Parameters.AddWithValue("@Start_Time", txtstarttime.Text);
                     cmd.Parameters.AddWithValue("@End_Time", txtendtime.Text);
@@ -72,7 +74,7 @@ namespace TSM_Project
                     txtDate.Text = "";
                     txtstarttime.Text = "";
                     txtendtime.Text = "";
-
+                    
                 }
                 else
                 {

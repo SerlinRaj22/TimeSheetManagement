@@ -19,31 +19,23 @@
                 <div class="col-lg-12">
                     <section class="panel">
                         <section class="wrapper">
+                                                    <h2><asp:Label ID="lbusername" runat="server"></asp:Label></h2>
+
                         <header class="panel-heading">
                             Time Sheet Records
                         </header>
                         <br />
                         <div class="col-lg-12" >
-                             <asp:Label ID="lbusername" runat="server"></asp:Label>
-                        <asp:GridView ID="EmpView" runat="server" AutoGenerateColumns="false" ShowFooter="false" DataKeyNames="Emp_ID" 
+                        <asp:GridView ID="EmpView" runat="server" AutoGenerateColumns="false" ShowFooter="false" DataKeyNames="TimeSheet_ID" 
                             class="table panel table-striped table-advance table-hover" 
                              style="margin-left: 0px" Width="866px">
                             <Columns>
-                             
-                                 <asp:TemplateField HeaderText="Employee ID">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbempid" Text='<%# Eval("Emp_ID") %>' runat="server"></asp:Label>
-                                    </ItemTemplate>
-                                    <EditItemTemplate>
-                                        <asp:TextBox ID="Txtempid" Text='<%# Eval("Emp_ID") %>' runat="server"></asp:TextBox>
-                                    </EditItemTemplate>
-                                     </asp:TemplateField>
                                   <asp:TemplateField HeaderText="User Name">
                                     <ItemTemplate>
-                                        <asp:Label ID="lbusername" Text='<%# Eval("User_Name") %>' runat="server"></asp:Label>
+                                        <asp:Label ID="lbusername" Text='<%# Eval("UserName") %>' runat="server"></asp:Label>
                                     </ItemTemplate>
                                     <EditItemTemplate>
-                                        <asp:TextBox ID="Txtusername" Text='<%# Eval("User_Name") %>' runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="Txtusername" Text='<%# Eval("UserName") %>' runat="server"></asp:TextBox>
                                     </EditItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Date">

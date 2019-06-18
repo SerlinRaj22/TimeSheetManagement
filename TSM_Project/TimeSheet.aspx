@@ -18,6 +18,13 @@
                 Time Sheet
               </header>
               <div class="panel-body form-horizontal">
+                   <div class="form-group">
+                          <label class="control-label col-sm-2">User Name</label>
+                          <div class="col-sm-6">
+                             <asp:Label ID="lbusername" runat="server"></asp:Label>
+                          </div>
+                      </div>                  
+                     
                  
                       <div class="form-group">
                           <label class="control-label col-sm-2">Date</label>

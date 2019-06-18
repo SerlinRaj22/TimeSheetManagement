@@ -15,6 +15,12 @@ namespace TSM_Project
 {
     public partial class WebForm5 : System.Web.UI.Page
     {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            lbusername.Text = Session["User_Name"] as string;
+
+            populateEmpview();
+        }
         void populateEmpview()
         {
 
@@ -22,7 +28,7 @@ namespace TSM_Project
             string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
             using (SqlConnection con = new SqlConnection(cs))
             {
-                string sqlString = "SELECT Emp_ID,User_Name,Date,Start_Time,End_Time,Project_Name FROM Time_sheet T JOIN Project_Master_table P on E.Project_ID = P.Project_ID JOIN Employee_Master_Table E on E.Emp_ID =";
+                string sqlString = "SELECT TimeSheet_ID,UserName,Date,Start_Time,End_Time,Project_Name FROM Time_sheet T JOIN Project_Master_table P on T.Project_ID = P.Project_ID AND T.UserName='"+ lbusername.Text+ "'";
                 con.Open();
                 SqlDataAdapter sda = new SqlDataAdapter(sqlString, con);
 
@@ -45,12 +51,7 @@ namespace TSM_Project
                 EmpView.Rows[0].Cells[0].HorizontalAlign = HorizontalAlign.Center;
             }
         }
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            lbusername.Text = Session["User_Name"] as string;
-
-            populateEmpview();
-        }
+        
 
     }
 }
