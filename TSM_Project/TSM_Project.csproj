@@ -455,7 +455,7 @@
     <Content Include="assets\morris.js-0.4.3\spec\vendor\raphael-2.1.0.min.js" />
     <Content Include="assets\morris.js-0.4.3\spec\vendor\sinon-1.5.0.js" />
     <Content Include="assets\morris.js-0.4.3\spec\vendor\sinon-chai-2.1.2.js" />
-    <Content Include="ChangePassword.aspx" />
+    <Content Include="PresentationLayer\ChangePassword.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="contactform\contactform.js" />
     <Content Include="contactform\Readme.txt" />
@@ -481,10 +481,8 @@
     <Content Include="css\style.css" />
     <Content Include="css\widgets.css" />
     <Content Include="css\xcharts.min.css" />
-    <Content Include="DashBoardSample.aspx" />
     <Content Include="Default.aspx" />
-    <Content Include="ApprovalPage.aspx" />
-    <Content Include="ZEmployeeService.asmx" />
+    <Content Include="PresentationLayer\ApprovalPage.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fontsOrg\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\ElegantIcons.svg" />
@@ -528,7 +526,6 @@
     <Content Include="img\delbtn.jpg" />
     <Content Include="img\savebtn.jpg" />
     <Content Include="img\tick.jpg" />
-    <Content Include="indexhr.aspx" />
     <Content Include="assets\chart-master\.gitignore" />
     <Content Include="assets\chart-master\component.json" />
     <Content Include="assets\chart-master\docs\prettify.less" />
@@ -575,16 +572,16 @@
     <Content Include="assets\morris.js-0.4.3\spec\lib\pad_spec.coffee" />
     <Content Include="assets\morris.js-0.4.3\spec\lib\parse_time_spec.coffee" />
     <Content Include="assets\morris.js-0.4.3\spec\support\placeholder.coffee" />
-    <Content Include="Employee.aspx" />
-    <Content Include="DashBoard.aspx" />
-    <Content Include="LoginTMS.aspx" />
-    <Content Include="TimeSheet.aspx" />
-    <Content Include="ViewSheets.aspx" />
-    <Content Include="Profile.aspx" />
+    <Content Include="PresentationLayer\AddEmployee.aspx" />
+    <Content Include="PresentationLayer\DashBoard.aspx" />
+    <Content Include="PresentationLayer\LoginTMS.aspx" />
+    <Content Include="PresentationLayer\AddTimeSheet.aspx" />
+    <Content Include="PresentationLayer\ViewSheets.aspx" />
+    <Content Include="PresentationLayer\ViewProfile.aspx" />
     <Content Include="Charts.aspx" />
-    <Content Include="Projects.aspx" />
-    <Content Include="Pages.aspx" />
-    <Content Include="Editprofile.aspx" />
+    <Content Include="PresentationLayer\AddProjects.aspx" />
+    <Content Include="PresentationLayer\AddprojectEmployee.aspx" />
+    <Content Include="PresentationLayer\Editprofile.aspx" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="img\arrow-up.png" />
     <Content Include="img\avatar-mini.jpg" />
@@ -711,7 +708,7 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
-    <Content Include="Site.Master" />
+    <Content Include="PresentationLayer\MasterPage\Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="View\ViewEmployee.aspx" />
     <Content Include="Web.config" />
@@ -727,11 +724,11 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="ChangePassword.aspx.cs">
+    <Compile Include="PresentationLayer\ChangePassword.aspx.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ChangePassword.aspx.designer.cs">
+    <Compile Include="PresentationLayer\ChangePassword.aspx.designer.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
@@ -741,13 +738,6 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DashBoardSample.aspx.cs">
-      <DependentUpon>DashBoardSample.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="DashBoardSample.aspx.designer.cs">
-      <DependentUpon>DashBoardSample.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -755,34 +745,29 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="empLoad.cs" />
-    <Compile Include="ApprovalPage.aspx.cs">
+    <Compile Include="PresentationLayer\ApprovalPage.aspx.cs">
       <DependentUpon>ApprovalPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ApprovalPage.aspx.designer.cs">
+    <Compile Include="PresentationLayer\ApprovalPage.aspx.designer.cs">
       <DependentUpon>ApprovalPage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ZEmployeeService.asmx.cs">
-      <DependentUpon>ZEmployeeService.asmx</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="LoginTMS.aspx.cs">
+    <Compile Include="PresentationLayer\LoginTMS.aspx.cs">
       <DependentUpon>LoginTMS.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="LoginTMS.aspx.designer.cs">
+    <Compile Include="PresentationLayer\LoginTMS.aspx.designer.cs">
       <DependentUpon>LoginTMS.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Site.Master.cs">
+    <Compile Include="PresentationLayer\MasterPage\Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Site.Master.designer.cs">
+    <Compile Include="PresentationLayer\MasterPage\Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
@@ -799,47 +784,40 @@
     <Compile Include="View\ViewEmployee.aspx.designer.cs">
       <DependentUpon>ViewEmployee.aspx</DependentUpon>
     </Compile>
-    <Compile Include="indexhr.aspx.cs">
-      <DependentUpon>indexhr.aspx</DependentUpon>
+    <Compile Include="PresentationLayer\AddEmployee.aspx.cs">
+      <DependentUpon>AddEmployee.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="indexhr.aspx.designer.cs">
-      <DependentUpon>indexhr.aspx</DependentUpon>
+    <Compile Include="PresentationLayer\AddEmployee.aspx.designer.cs">
+      <DependentUpon>AddEmployee.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Employee.aspx.cs">
-      <DependentUpon>Employee.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Employee.aspx.designer.cs">
-      <DependentUpon>Employee.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="DashBoard.aspx.cs">
+    <Compile Include="PresentationLayer\DashBoard.aspx.cs">
       <DependentUpon>DashBoard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="DashBoard.aspx.designer.cs">
+    <Compile Include="PresentationLayer\DashBoard.aspx.designer.cs">
       <DependentUpon>DashBoard.aspx</DependentUpon>
     </Compile>
-    <Compile Include="TimeSheet.aspx.cs">
-      <DependentUpon>TimeSheet.aspx</DependentUpon>
+    <Compile Include="PresentationLayer\AddTimeSheet.aspx.cs">
+      <DependentUpon>AddTimeSheet.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="TimeSheet.aspx.designer.cs">
-      <DependentUpon>TimeSheet.aspx</DependentUpon>
+    <Compile Include="PresentationLayer\AddTimeSheet.aspx.designer.cs">
+      <DependentUpon>AddTimeSheet.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ViewSheets.aspx.cs">
+    <Compile Include="PresentationLayer\ViewSheets.aspx.cs">
       <DependentUpon>ViewSheets.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ViewSheets.aspx.designer.cs">
+    <Compile Include="PresentationLayer\ViewSheets.aspx.designer.cs">
       <DependentUpon>ViewSheets.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Profile.aspx.cs">
-      <DependentUpon>Profile.aspx</DependentUpon>
+    <Compile Include="PresentationLayer\ViewProfile.aspx.cs">
+      <DependentUpon>ViewProfile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Profile.aspx.designer.cs">
-      <DependentUpon>Profile.aspx</DependentUpon>
+    <Compile Include="PresentationLayer\ViewProfile.aspx.designer.cs">
+      <DependentUpon>ViewProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Charts.aspx.cs">
       <DependentUpon>Charts.aspx</DependentUpon>
@@ -848,25 +826,25 @@
     <Compile Include="Charts.aspx.designer.cs">
       <DependentUpon>Charts.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Projects.aspx.cs">
-      <DependentUpon>Projects.aspx</DependentUpon>
+    <Compile Include="PresentationLayer\AddProjects.aspx.cs">
+      <DependentUpon>AddProjects.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Projects.aspx.designer.cs">
-      <DependentUpon>Projects.aspx</DependentUpon>
+    <Compile Include="PresentationLayer\AddProjects.aspx.designer.cs">
+      <DependentUpon>AddProjects.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages.aspx.cs">
-      <DependentUpon>Pages.aspx</DependentUpon>
+    <Compile Include="PresentationLayer\AddprojectEmployee.aspx.cs">
+      <DependentUpon>AddprojectEmployee.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages.aspx.designer.cs">
-      <DependentUpon>Pages.aspx</DependentUpon>
+    <Compile Include="PresentationLayer\AddprojectEmployee.aspx.designer.cs">
+      <DependentUpon>AddprojectEmployee.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Editprofile.aspx.cs">
+    <Compile Include="PresentationLayer\Editprofile.aspx.cs">
       <DependentUpon>Editprofile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Editprofile.aspx.designer.cs">
+    <Compile Include="PresentationLayer\Editprofile.aspx.designer.cs">
       <DependentUpon>Editprofile.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -874,7 +852,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="BusinessLayer\" />
     <Folder Include="DataAccessLayer\" />
-    <Folder Include="PresentationLayer\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
