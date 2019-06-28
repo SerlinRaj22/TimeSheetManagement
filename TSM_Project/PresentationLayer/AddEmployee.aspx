@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AddEmployee.aspx.cs" Inherits="TSM_Project.WebForm2" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PresentationLayer/MasterPage/Site.Master" AutoEventWireup="true" CodeBehind="AddEmployee.aspx.cs" Inherits="TSM_Project.WebForm2" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <section id="main-content">
@@ -34,6 +34,7 @@
                             <Columns>
                                 <asp:TemplateField HeaderText="Fisrt Name">
                                     <ItemTemplate>
+                                        
                                         <asp:Label ID="lbfirstname" Text='<%# Eval("First_Name") %>' runat="server"></asp:Label>
                                     </ItemTemplate>
                                     <EditItemTemplate>
@@ -88,13 +89,14 @@
                                 
                                 <asp:TemplateField HeaderText="DOB">
                                     <ItemTemplate>
+
                                         <asp:Label ID="lbDOB" Text='<%# Eval("DOB") %>' runat="server"></asp:Label>
                                     </ItemTemplate>
                                     <EditItemTemplate>
-                                        <asp:TextBox ID="TxtDOB" Text='<%# Eval("DOB") %>' runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="TxtDOB" Text='<%# Eval("DOB") %>' runat="server" TextMode="Date"></asp:TextBox>
                                     </EditItemTemplate>
                                     <FooterTemplate>
-                                        <asp:TextBox ID="TxtDOBfooter" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="TxtDOBfooter" runat="server" TextMode="Date"></asp:TextBox>
 
                                     </FooterTemplate>
                                 </asp:TemplateField>

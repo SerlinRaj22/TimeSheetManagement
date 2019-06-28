@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AddTimeSheet.aspx.cs" Inherits="TSM_Project.WebForm4" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PresentationLayer/MasterPage/Site.Master" AutoEventWireup="true" CodeBehind="AddTimeSheet.aspx.cs" Inherits="TSM_Project.WebForm4" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <section id="main-content">
       <section class="wrapper">

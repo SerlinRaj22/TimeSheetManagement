@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" EnableEventValidation="false" CodeBehind="ViewSheets.aspx.cs" Inherits="TSM_Project.WebForm5" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PresentationLayer/MasterPage/Site.Master" AutoEventWireup="true" EnableEventValidation="false" CodeBehind="ViewSheets.aspx.cs" Inherits="TSM_Project.WebForm5" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 

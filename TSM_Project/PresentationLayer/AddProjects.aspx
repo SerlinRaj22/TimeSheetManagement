@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AddProjects.aspx.cs" Inherits="TSM_Project.WebForm8" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PresentationLayer/MasterPage/Site.Master" AutoEventWireup="true" CodeBehind="AddProjects.aspx.cs" Inherits="TSM_Project.WebForm8" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <section id="main-content">
       <section class="wrapper">
@@ -66,7 +66,7 @@
 
                                     </ItemTemplate>
                                     <EditItemTemplate>
-                                        <asp:Button ID="imgbtnupdate" ImageUrl="~/img/savebtn.jpg" CommandName="Update" Text="Update" runat="server" CssClass="btn btn-default" ToolTip="Update" Height="35px" Width="65px" />
+                                        <asp:Button ID="imgbtnupdate" ImageUrl="~/img/savebtn.jpg" CommandName="Update" Text="Update" runat="server" CssClass="btn btn-success" ToolTip="Update" Height="35px" Width="65px" />
                                         <asp:Button ID="imgbtncancel" ImageUrl="~/img/cancel.jpg" CommandName="Cancel" Text="Cancel" runat="server"  CssClass="btn btn-danger" ToolTip="Cancel" Height="35px" Width="65px" />
 
                                     </EditItemTemplate>
@@ -78,7 +78,7 @@
                                 </asp:TemplateField>
                             <asp:TemplateField HeaderText="Employee">
                                   <ItemTemplate>
-                            <asp:Button PostBackUrl="~/Pages.aspx" ID="imgbtnaddpro" ImageUrl="~/img/addbtn.jpg" Text="Add" CssClass="btn btn-warning" CommandName="AddEmployee" runat="server" ToolTip="Add Employee" Height="35px" Width="65px" ImageAlign="AbsMiddle"/>
+                            <asp:Button PostBackUrl="~/PresentationLayer/AddprojectEmployee.aspx" ID="imgbtnaddpro" ImageUrl="~/img/addbtn.jpg" Text="Add" CssClass="btn btn-warning" CommandName="AddEmployee" runat="server" ToolTip="Add Employee" Height="35px" Width="65px" ImageAlign="AbsMiddle"/>
                                 
                                   </ItemTemplate>
 

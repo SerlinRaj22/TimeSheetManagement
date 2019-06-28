@@ -62,6 +62,7 @@ namespace TSM_Project
                     using (SqlConnection con = new SqlConnection(cs))
                     {
 
+                        con.Open();
                         string projectname = (EmpView.FooterRow.FindControl("Txtprojectnamefooter") as TextBox).Text.Trim();
                         string projectdescript = (EmpView.FooterRow.FindControl("Txtprojectdescriptfooter") as TextBox).Text.Trim();
                         string ErrMsg = "";
@@ -69,26 +70,34 @@ namespace TSM_Project
                         {
                             ErrMsg = ErrMsg + "Please fill all blank fields </br>";
                         }
+                        //count of the existing project 
+                        string sqlStringcount = "SELECT COUNT(Project_Name) FROM Project_Master_table WHERE Project_Name='"+projectname+"'";
+                        SqlCommand cmdcount = new SqlCommand(sqlStringcount, con);
+                        int TScount = Convert.ToInt32(cmdcount.ExecuteScalar().ToString());
 
                         if (string.IsNullOrEmpty(ErrMsg))
                         {
-                            string sqlString = "INSERT INTO Project_Master_table(Project_Name,Project_Description) VALUES(@Project_Name,@Project_Description) ";
-                            con.Open();
-                            SqlCommand cmd = new SqlCommand(sqlString, con);
-                            cmd.Parameters.AddWithValue("@Project_Name", (EmpView.FooterRow.FindControl("Txtprojectnamefooter") as TextBox).Text.Trim());
-                            cmd.Parameters.AddWithValue("@Project_Description", (EmpView.FooterRow.FindControl("Txtprojectdescriptfooter") as TextBox).Text.Trim());
-                            cmd.ExecuteNonQuery();
-                            populateProject();
-                            lbsuccess.Text = "New Record Added";
-                            lberror.Text = "";
+                            if ((TScount <= 0))
+                            {
+
+                                string sqlString = "INSERT INTO Project_Master_table(Project_Name,Project_Description) VALUES(@Project_Name,@Project_Description) ";
+                                SqlCommand cmd = new SqlCommand(sqlString, con);
+
+                                cmd.Parameters.AddWithValue("@Project_Name", (EmpView.FooterRow.FindControl("Txtprojectnamefooter") as TextBox).Text.Trim());
+                                cmd.Parameters.AddWithValue("@Project_Description", (EmpView.FooterRow.FindControl("Txtprojectdescriptfooter") as TextBox).Text.Trim());
+                                cmd.ExecuteNonQuery();
+
+                                populateProject();
+                                lbsuccess.Text = "New Record Added";
+                                lberror.Text = "";
+                            }
+                            else
+                            {
+                                lbsuccess.Text = "";
+                                lberror.Text = "Project name already exist";
+                            }
                         }
-                        else
-                        {
-                            lberror.Text = ErrMsg;
-                        }
-
-
-
+                        con.Close();
                     }
                 }
 
@@ -124,17 +133,45 @@ namespace TSM_Project
                 string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
                 using (SqlConnection con = new SqlConnection(cs))
                 {
-                    string sqlString = "UPDATE Project_Master_table SET Project_Name=@Project_Name,Project_description=@Project_description WHERE Project_ID=@Project_ID";
                     con.Open();
-                    SqlCommand cmd = new SqlCommand(sqlString, con);
-                    cmd.Parameters.AddWithValue("@Project_Name", (EmpView.Rows[e.RowIndex].FindControl("Txtprojectname") as TextBox).Text.Trim());
-                    cmd.Parameters.AddWithValue("@Project_description", (EmpView.Rows[e.RowIndex].FindControl("Txtprojectdescript") as TextBox).Text.Trim());
-                    cmd.Parameters.AddWithValue("@Project_ID", Convert.ToInt32(EmpView.DataKeys[e.RowIndex].Value.ToString()));
-                    cmd.ExecuteNonQuery();
-                    EmpView.EditIndex = -1;
-                    populateProject();
-                    lbsuccess.Text = "Selected Record Updated";
-                    lberror.Text = "";
+
+                    string projectname = (EmpView.Rows[e.RowIndex].FindControl("Txtprojectname") as TextBox).Text.Trim();
+                    string projectdescript = (EmpView.Rows[e.RowIndex].FindControl("Txtprojectdescript") as TextBox).Text.Trim();
+                    string ErrMsg = "";
+                    if (string.IsNullOrEmpty(projectname) || string.IsNullOrEmpty(projectdescript))
+                    {
+                        ErrMsg = ErrMsg + "Please fill all blank fields </br>";
+                    }
+                    //count of the existing project 
+                    string sqlStringcount = "SELECT COUNT(Project_Name) FROM Project_Master_table WHERE Project_Name='" + projectname + "'";
+                    SqlCommand cmdcount = new SqlCommand(sqlStringcount, con);
+                    int TScount = Convert.ToInt32(cmdcount.ExecuteScalar().ToString());
+
+                    if (string.IsNullOrEmpty(ErrMsg))
+                    {
+                        if ((TScount <= 0))
+                        {
+
+                            string sqlString = "UPDATE Project_Master_table SET Project_Name=@Project_Name,Project_description=@Project_description WHERE Project_ID=@Project_ID";
+                            SqlCommand cmd = new SqlCommand(sqlString, con);
+                            cmd.Parameters.AddWithValue("@Project_Name", (EmpView.Rows[e.RowIndex].FindControl("Txtprojectname") as TextBox).Text.Trim());
+                            cmd.Parameters.AddWithValue("@Project_description", (EmpView.Rows[e.RowIndex].FindControl("Txtprojectdescript") as TextBox).Text.Trim());
+                            cmd.Parameters.AddWithValue("@Project_ID", Convert.ToInt32(EmpView.DataKeys[e.RowIndex].Value.ToString()));
+                            cmd.ExecuteNonQuery();
+                            EmpView.EditIndex = -1;
+                            populateProject();
+                            lbsuccess.Text = "Selected Record Updated";
+                            lberror.Text = "";
+
+                        }
+                        else
+                        {
+                            lberror.Text = "Project name already exist";
+                        }
+                    }
+                    lberror.Text = ErrMsg;
+                    con.Close();
+                        
 
                 }
 
@@ -157,7 +194,7 @@ namespace TSM_Project
                 string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
                 using (SqlConnection con = new SqlConnection(cs))
                 {
-                    string sqlString = "DELETE FROM Employee_Master_Table  WHERE EMP_ID=@EMP_ID";
+                    string sqlString = "DELETE FROM Project_Master_table  WHERE Project_ID=@Project_ID";
                     con.Open();
                     SqlCommand cmd = new SqlCommand(sqlString, con);
 
@@ -178,6 +215,7 @@ namespace TSM_Project
 
 
             }
+            
 
         }
 

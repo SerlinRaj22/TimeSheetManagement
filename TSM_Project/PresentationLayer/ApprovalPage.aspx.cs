@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using TSM_Project.DataAccessLayer;
 
 namespace TSM_Project
 {
@@ -21,7 +22,7 @@ namespace TSM_Project
                 lbempid.Text = Session["Emp_ID"] as string;
                 if (lbroleid.Text == "5")
                 {
-                  DataTable dt =  viewRequestList(0, true);
+                    DataTable dt = viewRequestList(0, true);
                     EmpView.DataSource = dt;
                     EmpView.DataBind();
 
@@ -35,31 +36,27 @@ namespace TSM_Project
         {
             DataTable dt = new DataTable();
             string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
-            using (SqlConnection con = new SqlConnection(cs))
+            //using (SqlConnection con = new SqlConnection(cs))
+            //{
+            string sqlString = "";
+
+            if (isViewAll)
             {
-                string sqlString = "";
-
-                if (isViewAll)
-                {
-                    sqlString = "SELECT * FROM ApproveTable";
-                }
-                else
-                {
-                    sqlString = "SELECT * FROM ApproveTable Where Approve_ID=" + Approve_ID;
-                }
-
-                con.Open();
-                SqlDataAdapter sda = new SqlDataAdapter(sqlString, con);
-
-                sda.Fill(dt);
+                sqlString = "SELECT * FROM ApproveTable";
             }
+            else
+            {
+                sqlString = "SELECT * FROM ApproveTable Where Approve_ID=" + Approve_ID;
+            }
+            AccessLayer ac = new AccessLayer();
+            dt = ac.ExecuteSqlDataAdpter(sqlString);
             return dt;
+            //      con.Open();
+            //     SqlDataAdapter sda = new SqlDataAdapter(sqlString, con);
 
+            //    sda.Fill(dt);
         }
 
-
-
-        //https://www.slideshare.net/MonotheistSakib/employee-management-system-62900052
         protected void EmpView_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "ApproveEmployee")
@@ -77,6 +74,8 @@ namespace TSM_Project
                 }
             }
         }
+
     }
 
 }
+

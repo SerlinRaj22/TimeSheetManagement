@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="DashBoard.aspx.cs" Inherits="TSM_Project.WebForm3" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PresentationLayer/MasterPage/Site.Master" AutoEventWireup="true" CodeBehind="DashBoard.aspx.cs" Inherits="TSM_Project.WebForm3" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <section id="main-content">
             <section class="wrapper">
@@ -13,14 +13,13 @@
                         </ol>
                     </div>
                 </div>
+                <!-- Session labels-->
                    <asp:Label ID="lbusername" runat="server" Visible="false"></asp:Label>
-
                   <asp:Label ID="lbroleid" runat ="server" Visible="false"></asp:Label>
                 <asp:Label ID="lbempid" runat="server" Visible="false"></asp:Label>
-                <div class="row">
-                   
-                    
-                    <!--/.col-->
+              
+                <div class="row">  
+                    <!-- employees count-->
 
                     <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                         <div class="info-box red-bg">
@@ -30,9 +29,8 @@
                             </div>
                             <div class="title">Employees</div>
                         </div>
-                        <!--/.info-box-->
                     </div>
-                    <!--/.col-->
+                    <!--time sheet count-->
 
                     <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                         <div class="info-box blue-bg">
@@ -43,9 +41,9 @@
                             </div>
                             <div class="title">Time Sheets</div>
                         </div>
-                        <!--/.info-box-->
+                        
                     </div>
-                    <!--/.col-->
+                    <!--project count-->
 
                     <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                         <div class="info-box green-bg">
@@ -56,9 +54,8 @@
                             </div>
                             <div class="title">Total Projects</div>
                         </div>
-                        <!--/.info-box-->
                     </div>
-                    <!--/.col-->
+                    <!--Time -->
                     <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                         <div class="info-box yellow-bg" style="height:140px">
                             <i class="fa fa-bell"></i>
@@ -68,96 +65,101 @@
                             </div>
                             <div class="title">Time</div>
                         </div>
-                        <!--/.info-box-->
                     </div>
                    
                 </div>
-                <!--/.row-->
 
 
 
 
-                <!-- Today status end -->
+
+<!--charts -->
 
 
+                
+    <div class="row">
+                <asp:Label ID="Label1" runat="server" Visible="false"></asp:Label>
+                <!-- chart morris start -->
+                <div class="col-lg-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            <h3>Employee Charts</h3>
+                        </header>
+                    </section>
+                </div>
 
-               <div class="row">
-
-                     <div class="col-lg-9 col-md-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h2><i class="fa fa-flag-o red"></i><strong>Employees Working Hours Table</strong></h2>
-                               
-                                
-                            </div>
-                            <div class="panel-body">
-                                 
-                                     <asp:GridView ID="EmpView" runat="server" AutoGenerateColumns="false" ShowFooter="false"
-                                    class="table bootstrap-datatable countries"
-                                    Style="margin-left: 0px" Width="800px">
-                                    <Columns>
-                  
-                                        <asp:TemplateField HeaderText="Date">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lbdate" Text='<%# Eval("Date") %>' runat="server"></asp:Label>
-                                            </ItemTemplate>
-                                            <EditItemTemplate>
-                                                <asp:TextBox ID="Txtdate" Text='<%# Eval("Date") %>' runat="server" TextMode="Date"></asp:TextBox>
-                                            </EditItemTemplate>
-
-                                        </asp:TemplateField>
-                                         <asp:TemplateField HeaderText="">
-                                            <ItemTemplate>
-                                               <div class="progress thin">
-                                                                                                    
-                                               </div>
-                                                <span class="sr-only">57%</span>                                           
-
-                                            </ItemTemplate>
-                                            <EditItemTemplate>
-                                             <div class="progress thin">
-                                                    <div class="col-lg-6">
+                <div class="panel-body">
+                    <div class="tab-pane" id="chartjs">
+                        <div class="row">
+                            <!-- Bar -->
+                            <div class="col-lg-6">
                                 <section class="panel">
                                     <header class="panel-heading">
                                         Bar
                                     </header>
                                     <div class="panel-body text-center">
-                                        <div>
 
-                                            <asp:Chart ID="Chart1" runat="server" Height="280" Width="400" >
+                                            <asp:Chart ID="Chart1" runat="server" Height="300px" Width="400px">
+                                                <Titles>
+                                                    <asp:Title  Text="Employee Bar Chart"></asp:Title>
+                                                </Titles>
+                                                
                                                 <Series>
-                                                    <asp:Series Name="Series1" ChartType="Pie"></asp:Series>
+                                                    <asp:Series Name="Series1" ChartType="Bar" Color="#0066ff"></asp:Series>
                                                 </Series>
                                                 <ChartAreas>
-                                                    <asp:ChartArea Name="ChartArea1"></asp:ChartArea>
+                                                    <asp:ChartArea Name="ChartArea1">
+                                                        <AxisX Title="Working Days"></AxisX>
+                                                        <AxisY Title="Working Hours"></AxisY>
+
+                                                    </asp:ChartArea>
                                                     
 
                                                 </ChartAreas>
                                             </asp:Chart>
 
                                         </div>
-                                        <canvas id="bar"></canvas>
+                                    
+                                </section>
+                            </div>
+
+                            <!-- Pie -->
+                            <div class="col-lg-6">
+                                <section class="panel">
+                                    <header class="panel-heading">
+                                        Pie
+                                    </header>
+                                    <div class="panel-body text-center">
+                                        
+                                            <asp:Chart ID="Chart2" runat="server" Height="300" Width="400">
+                                                <Titles>
+                                                    <asp:Title Text="Employee Pie Charts"></asp:Title>
+                                                </Titles>
+                                                <Series>
+                                                    <asp:Series Name="Series2" ChartArea="ChartArea2" ChartType="Pie">
+                                                    </asp:Series>
+                                                </Series>
+                                                <ChartAreas>
+                                                    <asp:ChartArea Name="ChartArea2">
+                                                        <AxisX Title="Working Days"></AxisX>
+                                                        <AxisY Title="Working Hours"></AxisY>
+                                                    </asp:ChartArea>
+                                                </ChartAreas>
+                                            </asp:Chart>
+                                        
                                     </div>
                                 </section>
                             </div>
-                                                </div>
-                                                <span class="sr-only">57%</span>                                            
 
-                                            </EditItemTemplate>
-
-                                        </asp:TemplateField>
-                                       </Columns>
-                                         </asp:GridView>
-                            </div>
-
+                       
+                            
                         </div>
 
                     </div>
-                    <!--/col-->
-
-
-
-
+                </div>
+            </div>
+                     
+                    <!--Labels -->
 
                     <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                         <div class="info-box red-bg">
@@ -170,18 +172,18 @@
                         <!--/.info-box-->
                     </div>
                     
-<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+              <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                         <div class="info-box pink-bg">
                             <i class="fa fa-bookmark"></i>
                             <div class="count">
-                               <strong> <asp:HyperLink ID="linklbmail" runat="server" ForeColor="Pink" Font-Size="Large"></asp:HyperLink></strong>
+                               <asp:HyperLink ID="linklbmail" runat="server" ForeColor="Pink" Font-Size="Large"></asp:HyperLink>
                             </div>
                             <div class="title"></div>
                         </div>
                         <!--/.info-box-->
                     </div>
                     <!--/col-->
-<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+           <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                         <div class="info-box dark-bg">
                             <i class="fa fa-magic"></i>
                             <div class="count">
@@ -189,17 +191,13 @@
                             </div>
                             <div class="title"></div>
                         </div>
-                        <!--/.info-box-->
-                    </div>                    <!--/col-->
+                      
+                    </div>                    
 
-                </div>
+                
 
 
 
-                <!-- statics end -->
-                <!-- project team & activity start -->
-
-                <!-- project team & activity end -->
 
             </section>
             

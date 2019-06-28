@@ -25,7 +25,7 @@ namespace TSM_Project
             using (SqlConnection con = new SqlConnection(cs))
             {
                 DataTable dt = new DataTable();
-                string sqlString = "SELECT N.Menu_ID, M.Role_ID,Menu_Name,N.URL,E.Emp_ID FROM Main_MenuTable M JOIN Menu_Table N ON M.Menu_ID = N.Menu_ID JOIN Role_Table R ON R.Role_ID = M.Role_ID JOIN Employee_Master_Table E ON R.Role_ID = E.Role_ID AND E.User_Name ='"+lbusername.Text+"' ";
+                string sqlString = "SELECT N.Menu_ID, M.Role_ID,Menu_Name,N.URL,E.Emp_ID FROM Main_MenuTable M JOIN Menu_Table N ON M.Menu_ID = N.Menu_ID JOIN Role_Table R ON R.Role_ID = M.Role_ID JOIN Employee_Master_Table E ON R.Role_ID = E.Role_ID AND E.Email ='"+ lbemail.Text+"' ";
                 con.Open();
                 SqlDataAdapter sda = new SqlDataAdapter(sqlString, con);
                 sda.Fill(dt);

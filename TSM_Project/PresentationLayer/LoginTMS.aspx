@@ -13,16 +13,16 @@
   <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal"/>
   <link rel="shortcut icon" href="img/favicon.png"/>
   <!-- Bootstrap CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../css/bootstrap.min.css" rel="stylesheet"/>
   <!-- bootstrap theme -->
-  <link href="css/bootstrap-theme.css" rel="stylesheet"/>
+  <link href="../css/bootstrap-theme.css" rel="stylesheet"/>
   <!--external css-->
   <!-- font icon -->
-  <link href="css/elegant-icons-style.css" rel="stylesheet" />
-  <link href="css/font-awesome.css" rel="stylesheet" />
+  <link href="../css/elegant-icons-style.css" rel="stylesheet" />
+  <link href="../css/font-awesome.css" rel="stylesheet" />
   <!-- Custom styles -->
-  <link href="css/style.css" rel="stylesheet"/>
-  <link href="css/style-responsive.css" rel="stylesheet" />
+  <link href="../css/style.css" rel="stylesheet"/>
+  <link href="../css/style-responsive.css" rel="stylesheet" />
 
 
 </head>
@@ -53,7 +53,7 @@
            
                 
                 <span class="pull-right">  
-                    <a href="~/ChangePassword.aspx" runat="server" text="Forget Password?">Forget Password?</a>
+                    <a href="ChangePassword.aspx" runat="server" text="Forget Password?">Forget Password?</a>
                                        </span>
             </label>
           <asp:Button ID="btnlogin" runat="server" class="btn btn-primary btn-lg btn-block" Text="Login" OnClick="btnlogin_Click"/>
