@@ -1,35 +1,34 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" EnableEventValidation="false" CodeBehind="ViewSheets.aspx.cs" Inherits="TSM_Project.WebForm5" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="viewpagenew.aspx.cs" Inherits="TSM_Project.WebForm9" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+     <section id="main-content">
+        <section class="wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3 class="page-header"><i class="fa fa-table"></i>View Sheets</h3>
+                    <ol class="breadcrumb">
+                        <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+                        <li><i class="fa fa-table"></i>View Sheets</li>
 
-    <section id="main-content">
-      <section class="wrapper">
-        <div class="row">
-          <div class="col-lg-12">
-              <br />
-            <h3 class="page-header"><i class="fa fa fa-bars"></i>Veiw Sheets</h3>
-            <ol class="breadcrumb">
-              <li><i class="fa fa-home"></i><a href="DashBoard.aspx">Home</a></li>
-              <li><i class="fa fa-bars"></i>Veiw Sheets</li>
-              
-            </ol>
-          </div>
-        </div>
-        <!-- page start-->        
+                    </ol>
+                </div>
+            </div>
+            <!-- page start-->
+
             <div class="row">
                 <div class="col-lg-12">
                     <section class="panel">
-                        <section class="wrapper">
-                             <asp:Label ID="lbusername" runat="server" Visible="false"></asp:Label>
-
+                    <br />
+                             <h2><asp:Label ID="lbusername" runat="server"></asp:Label></h2>
+<br />
                             <asp:Label ID="lbroleid" runat="server" Visible="false"></asp:Label>
-      
-                        <header class="panel-heading">
-                            <h3>Time Sheet Records</h3>
-                        </header>
-                        <br />
-                        <div class="col-lg-12" >
-                             <asp:GridView ID="EmpView" runat="server" AutoGenerateColumns="false" ShowFooter="false" DataKeyNames="TimeSheet_ID"
+                            <header class="panel-heading">
+                                Time Sheet Records
+                            </header>
+                            <br />
+                            <div class="row ">
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                
+                                <asp:GridView ID="EmpView" runat="server" AutoGenerateColumns="false" ShowFooter="false" DataKeyNames="TimeSheet_ID"
                                     class="table panel table-striped table-advance table-hover"
                                     Style="margin-left: 0px" Width="866px">
                                     <Columns>
@@ -86,23 +85,27 @@
                                     </Columns>
 
                                 </asp:GridView>
-          
 
+
+                                <asp:Button ID="viewbtn" runat="server" Class="btn-primary fa-align-right" Text="View Employees TimeSheet" Visible="false" OnClick="viewbtn_Click"/>
+
+
+
+                                <asp:ValidationSummary ID="valisummary" runat="server" ForeColor="Red" />
                             </div>
-            
-                           <br />
-                        <asp:Label ID="lbsuccess" runat="server" ForeColor="Green"></asp:Label>
-                        <br />
-                        <asp:Label ID="lberror" runat="server" ForeColor="Red"></asp:Label>
+                                </div>
+                            <br />
+                            <asp:Label ID="lbsuccess" runat="server" ForeColor="Green"></asp:Label>
+                            <br />
+                            <asp:Label ID="lberror" runat="server" ForeColor="Red"></asp:Label>
 
 
-                        </section>
                     </section>
                 </div>
             </div>
-<!-- page end-->
-           <asp:Button ID="viewbutton" runat="server" Class="btn btn-primary" Visible="false" Text="View Employees Time Sheets" CausesValidation="false" OnClick="viewbutton_Click"/>
-      </section>
+            <!-- page end-->
+        </section>
     </section>
+
 
 </asp:Content>

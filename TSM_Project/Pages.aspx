@@ -4,9 +4,10 @@
       <section class="wrapper">
         <div class="row">
           <div class="col-lg-12">
+              <br />
             <h3 class="page-header"><i class="fa fa fa-bars"></i>Pages</h3>
             <ol class="breadcrumb">
-              <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+              <li><i class="fa fa-home"></i><a href="DashBoard.aspx">Home</a></li>
               <li><i class="fa fa-paperclip"></i>Pages</li>
               
             </ol>
@@ -19,7 +20,7 @@
                     <section class="panel">
                         <section class="wrapper">
                         <header class="panel-heading">
-                            Select Employee and Project 
+                           <h3> Select Employee and Project</h3> 
                         </header>
                         <br />
                         

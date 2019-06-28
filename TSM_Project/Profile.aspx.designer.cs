@@ -13,6 +13,15 @@ namespace TSM_Project {
     public partial class WebForm6 {
         
         /// <summary>
+        /// lbusername control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbusername;
+        
+        /// <summary>
         /// proname1 control.
         /// </summary>
         /// <remarks>

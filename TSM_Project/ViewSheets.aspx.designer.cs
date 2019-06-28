@@ -22,6 +22,15 @@ namespace TSM_Project {
         protected global::System.Web.UI.WebControls.Label lbusername;
         
         /// <summary>
+        /// lbroleid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbroleid;
+        
+        /// <summary>
         /// EmpView control.
         /// </summary>
         /// <remarks>
@@ -29,15 +38,6 @@ namespace TSM_Project {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView EmpView;
-        
-        /// <summary>
-        /// valisummary control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ValidationSummary valisummary;
         
         /// <summary>
         /// lbsuccess control.
@@ -56,5 +56,14 @@ namespace TSM_Project {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lberror;
+        
+        /// <summary>
+        /// viewbutton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button viewbutton;
     }
 }

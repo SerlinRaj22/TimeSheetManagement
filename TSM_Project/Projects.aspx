@@ -4,10 +4,11 @@
       <section class="wrapper">
         <div class="row">
           <div class="col-lg-12">
+              <br />
             <h3 class="page-header"><i class="fa fa fa-bars"></i> Projects</h3>
             <ol class="breadcrumb">
-              <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
-              <li><i class="fa fa-bars"></i>Projects</li>
+              <li><i class="fa fa-home"></i><a href="DashBoard.aspx">Home</a></li>
+              <li><i class="icon_table"></i>Projects</li>
               
             </ol>
           </div>
@@ -19,7 +20,7 @@
                     <section class="panel">
                         <section class="wrapper">
                         <header class="panel-heading">
-                            Project Table
+                          <h3>  Project Table</h3>
                         </header>
                         <br />
                         <div class="col-lg-12" >

@@ -4,9 +4,10 @@
       <section class="wrapper">
         <div class="row">
           <div class="col-lg-12">
+              <br />
             <h3 class="page-header"><i class="fa fa-file-text-o"></i> Time Sheets</h3>
             <ol class="breadcrumb">
-              <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+              <li><i class="fa fa-home"></i><a href="DashBoard.aspx">Home</a></li>
               <li><i class="icon_document_alt"></i>Time Sheets</li>
             </ol>
           </div>
@@ -15,13 +16,13 @@
           <div class="col-lg-12">
             <section class="panel">
               <header class="panel-heading">
-                Time Sheet
+                <h3>Time Sheet</h3>
               </header>
               <div class="panel-body form-horizontal">
                    <div class="form-group">
                           <label class="control-label col-sm-2">User Name</label>
                           <div class="col-sm-6">
-                             <asp:Label ID="lbusername" runat="server"></asp:Label>
+                             <asp:Label ID="lbusername"  class="form-control" runat="server"></asp:Label>
                           </div>
                       </div>                  
                      

@@ -17,17 +17,17 @@ namespace TSM_Project
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            lbusername.Text = Session["User_Name"] as string;
             string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
             using (SqlConnection con = new SqlConnection(cs))
             {
-                string sqlString = "SELECT First_Name,Last_Name,Email,Mobile_number,DOB,City FROM Employee_Master_Table WHERE EMP_ID=1";
+                string sqlString = "SELECT First_Name,Last_Name,Email,Mobile_number,DOB,City FROM Employee_Master_Table WHERE User_Name='"+lbusername.Text+"' ";
                 con.Open();
                 SqlCommand cmd = new SqlCommand(sqlString, con);
 
                 SqlDataReader sdr = cmd.ExecuteReader();
-                while (sdr.Read())
-                {
-                    lbdatetime1.Text = DateTime.Now.ToString("dd,MM,yyyy");
+                sdr.Read();
+                lbdatetime1.Text = DateTime.Now.ToString("dd,MM,yyyy");
                     lbdatetime2.Text = DateTime.Now.ToString("hh:mm");
                     proname1.Text = sdr["First_Name"].ToString();
                     proname2.Text = sdr["Last_Name"].ToString();
@@ -42,7 +42,7 @@ namespace TSM_Project
                     lbcity.Text = sdr["City"].ToString();
                     lbmobile.Text = sdr["Mobile_number"].ToString();
                     lbemail.Text = sdr["Email"].ToString();
-                }
+                
                 this.DataBind();
             }
 

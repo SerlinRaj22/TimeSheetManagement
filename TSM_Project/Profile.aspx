@@ -4,9 +4,10 @@
       <section class="wrapper">
         <div class="row">
           <div class="col-lg-12">
+              <br />
             <h3 class="page-header"><i class="icon_desktop"></i> Profile</h3>
             <ol class="breadcrumb">
-              <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+              <li><i class="fa fa-home"></i><a href="DashBoard.aspx">Home</a></li>
               <li><i class="icon_desktop"></i>Profile</li>
              
             </ol>
@@ -18,6 +19,7 @@
             <div class="profile-widget profile-widget-info">
               <div class="panel-body">
                 <div class="col-lg-2 col-sm-2">
+                    <asp:Label ID="lbusername" runat="server" Visible="false"></asp:Label>
                   <h4><asp:Label ID="proname1" runat="server">  <%#proname1%>
  </asp:Label>&nbsp;<asp:Label ID="proname2" runat="server">  <%#proname2%>
  </asp:Label></h4>

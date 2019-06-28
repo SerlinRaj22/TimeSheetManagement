@@ -31,6 +31,42 @@ namespace TSM_Project {
         protected global::System.Web.UI.WebControls.Label lbusername;
         
         /// <summary>
+        /// lbroleid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbroleid;
+        
+        /// <summary>
+        /// lbempid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbempid;
+        
+        /// <summary>
+        /// lbemail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbemail;
+        
+        /// <summary>
+        /// repeater control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater repeater;
+        
+        /// <summary>
         /// MainContent control.
         /// </summary>
         /// <remarks>

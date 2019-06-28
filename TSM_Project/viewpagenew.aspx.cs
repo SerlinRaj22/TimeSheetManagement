@@ -5,26 +5,22 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
-using System.Data.OleDb;
-using System.Data.Odbc;
 using System.Configuration;
 using System.Data;
 
 
 namespace TSM_Project
 {
-    public partial class WebForm5 : System.Web.UI.Page
+    public partial class WebForm9 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack) { 
             lbusername.Text = Session["User_Name"] as string;
             lbroleid.Text = Session["Role_ID"] as string;
             populateEmpview();
-                if (lbroleid.Text == "5")
+            if (lbroleid.Text == "5")
             {
-                viewbutton.Visible = true;
-            }
+                viewbtn.Visible = true;
             }
 
         }
@@ -92,7 +88,7 @@ namespace TSM_Project
             }
         }
 
-        protected void viewbutton_Click(object sender, EventArgs e)
+        protected void viewbtn_Click(object sender, EventArgs e)
         {
             ViewAllEmployee();
         }

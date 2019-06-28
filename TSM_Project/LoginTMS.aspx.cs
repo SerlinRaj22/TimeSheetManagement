@@ -22,40 +22,56 @@ namespace TSM_Project
             string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
             using (SqlConnection con = new SqlConnection(cs))
             {
-                con.Open();
-                Session["User_Name"] = txtloginname.Text;
-                string sqlString = "SELECT COUNT (*) FROM Employee_Master_Table WHERE User_Name='" + txtloginname.Text + "'";
-                SqlCommand cmd = new SqlCommand(sqlString, con);
-                int temp = Convert.ToInt32(cmd.ExecuteScalar().ToString());
-                con.Close();
-                if (temp == 1)
+               con.Open();
+               
+                //string sqlString = "SELECT COUNT (*) FROM Employee_Master_Table WHERE User_Name='" + txtloginname.Text + "'";
+                //SqlCommand cmd = new SqlCommand(sqlString, con);
+                //int temp = Convert.ToInt32(cmd.ExecuteScalar().ToString());
+
+                string sqlroleid = "SELECT Role_ID FROM Employee_Master_Table WHERE User_Name='" + txtloginname.Text + "' AND Password='" + txtpassword.Text + "'";
+                string sqlempid = "SELECT Emp_ID FROM Employee_Master_Table WHERE User_Name='" + txtloginname.Text + "' AND Password='" + txtpassword.Text + "'";
+                SqlCommand rolecmd = new SqlCommand(sqlroleid, con);
+                SqlCommand empcmd = new SqlCommand(sqlempid, con);
+                string roleid = rolecmd.ExecuteScalar().ToString();
+                string empid = empcmd.ExecuteScalar().ToString();
+                if (!String.IsNullOrEmpty(roleid))
                 {
-                    con.Open();
-                    string sqlpassword = "SELECT Password FROM Employee_Master_Table WHERE User_Name='" + txtloginname.Text + "' ";
-                    SqlCommand passcmd = new SqlCommand(sqlpassword, con);
-                    string password = passcmd.ExecuteScalar().ToString().Replace(" ", "");
-                    if (password == txtpassword.Text)
-                    {
-                        Session["new"] = txtloginname.Text;
-                        Response.Redirect("~/DashBoard.aspx");
-                    }
-                    else
-                    {
-                        lberror.Text = "Incorrect Password";
-                    }
+                    Session["User_Name"] = txtloginname.Text;
+                    Session["Role_ID"] = roleid;
+                    Session["Emp_ID"] = empid;
+                    
+                    Response.Redirect("~/DashBoard.aspx");
+                    //  con.Open();
+                    //string sqlpassword = "SELECT Password FROM Employee_Master_Table WHERE User_Name='" + txtloginname.Text + "' ";
+                    //SqlCommand passcmd = new SqlCommand(sqlpassword, con);
+                    //string password = passcmd.ExecuteScalar().ToString().Replace(" ", "");
+                    //if (password == txtpassword.Text)
+                    //{
+                    //    Session["new"] = txtloginname.Text;
 
-
-
+                    //}
+                    //else
+                    //{
+                    //    lberror.Text = "Incorrect Password";
+                    //}
                 }
                 else
                 {
                     lberror.Text = "Incorrect Password";
 
                 }
+                
+               
 
             }
         }
 
-       
+
+
+        void getEmail()
+        {
+
+        }
     }
+
 }

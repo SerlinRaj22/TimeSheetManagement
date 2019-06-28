@@ -4,10 +4,11 @@
       <section class="wrapper">
         <div class="row">
           <div class="col-lg-12">
+              <br />
             <h3 class="page-header"><i class="icon_desktop"></i> Profile</h3>
             <ol class="breadcrumb">
-              <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
-              <li><i class="icon_desktop"></i>Profile</li>
+              <li><i class="fa fa-home"></i><a href="DashBoard.aspx">Home</a></li>
+              <li><i class="icon_desktop"></i>Edit Profile</li>
              
             </ol>
           </div>
@@ -18,13 +19,17 @@
             <div class="profile-widget profile-widget-info">
               <div class="panel-body">
                 <div class="col-lg-2 col-sm-2">
+             <asp:Label ID="lbusername" runat="server" Visible="false"></asp:Label>
+           <asp:Label ID="lbroleid" runat ="server" Visible="false"></asp:Label>
+                <asp:Label ID="lbempid" runat="server" Visible="false"></asp:Label>
+
                   <h4><asp:Label ID="proname1" runat="server">  <%#proname1%>
  </asp:Label>&nbsp;<asp:Label ID="proname2" runat="server">  <%#proname2%>
  </asp:Label></h4>
                   <div class="follow-ava">
                     <img src="img/profile-widget-avatar.jpg" alt="">
                   </div>
-                  <h6>Administrator</h6>
+                  <h6></h6>
                 </div>
                 <div class="col-lg-4 col-sm-4 follow-info">
                   
@@ -96,7 +101,7 @@
                     <section class="panel">
                       <div class="panel-body bio-graph-info">
                         <h1> Profile Info</h1>
-                        <form class="form-horizontal" role="form">
+                        <div class="form-horizontal" role="form">
                           <div class="form-group">
                             <label class="col-lg-2 control-label">First Name</label>
                             <div class="col-lg-6">
@@ -139,11 +144,13 @@
 
                           <div class="form-group">
                             <div class="col-lg-offset-2 col-lg-10">
-                            <asp:Button ID="btnsave" runat="server" Text="Save" class="btn btn-primary" ></asp:Button>
-                               <asp:Button ID="btncancel" runat="server" Text="cancel" class="btn btn-danger"></asp:Button>
+                            <asp:Button ID="btnsave" runat="server" Text="Save" class="btn btn-success" OnClick="btnsave_Click"></asp:Button>
+                           <asp:Button ID="btncancel" runat="server" Text="cancel" class="btn btn-danger" OnClick="btncancel_Click"></asp:Button>
+                       <asp:Button ID="btnApprovepage" runat="server" Text="Approve List" Class="btn btn-primary" OnClick="btnApprovepage_Click" Visible="false"></asp:Button>
+
                             </div>
                           </div>
-                        </form>
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -156,5 +163,8 @@
         </div>
           <!-- page end-->
       </section>
+        <asp:Label ID="lbsuccess" runat="server" ForeColor="Green"></asp:Label>
+                <asp:Label ID="lberror" runat="server" ForeColor="Red"></asp:Label>
+
     </section>
 </asp:Content>

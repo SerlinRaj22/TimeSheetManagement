@@ -41,6 +41,7 @@ namespace TSM_Project
 
             }
         }
+
         protected void btnsave_Click(object sender, EventArgs e)
         {
             string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
@@ -90,6 +91,7 @@ namespace TSM_Project
             txtDate.Text = "";
             txtstarttime.Text = "";
             txtendtime.Text = "";
+            
             populateProject();
         }
     }

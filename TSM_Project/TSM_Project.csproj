@@ -50,6 +50,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -480,7 +481,9 @@
     <Content Include="css\style.css" />
     <Content Include="css\widgets.css" />
     <Content Include="css\xcharts.min.css" />
+    <Content Include="DashBoardSample.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="ApprovalPage.aspx" />
     <Content Include="ZEmployeeService.asmx" />
     <Content Include="favicon.ico" />
     <Content Include="fontsOrg\glyphicons-halflings-regular.svg" />
@@ -738,6 +741,13 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DashBoardSample.aspx.cs">
+      <DependentUpon>DashBoardSample.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DashBoardSample.aspx.designer.cs">
+      <DependentUpon>DashBoardSample.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -746,6 +756,13 @@
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="empLoad.cs" />
+    <Compile Include="ApprovalPage.aspx.cs">
+      <DependentUpon>ApprovalPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ApprovalPage.aspx.designer.cs">
+      <DependentUpon>ApprovalPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ZEmployeeService.asmx.cs">
       <DependentUpon>ZEmployeeService.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -855,6 +872,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="BusinessLayer\" />
+    <Folder Include="DataAccessLayer\" />
+    <Folder Include="PresentationLayer\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
