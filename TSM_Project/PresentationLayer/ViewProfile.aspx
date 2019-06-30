@@ -26,48 +26,20 @@
                   <div class="follow-ava">
                     <img src="img/profile-widget-avatar.jpg" alt="">
                   </div>
-                  <h6>Administrator</h6>
                 </div>
-                <div class="col-lg-4 col-sm-4 follow-info">
+                <div class="col-lg-6 col-sm-4 follow-info">
                   
-                  <p><asp:Label ID="profirstlastname1" runat="server">  <%#profirstlastname1%></asp:Label>
-                    <p> <asp:Label ID="profirstlastname2" runat="server" ><%#profirstlastname2%></asp:Label></p>
-                      <p> <asp:Label ID="twit" runat="server" class="fa fa-mail-reply-all">  <%#twit%> ></asp:Label></p>
-                 <p> <asp:Label ID="mob" runat="server" class="fa fa-mobile">  <%# mob%> ></asp:Label></p>
+                  <h5><asp:Label ID="profirstlastname1" runat="server">  <%#profirstlastname1%></asp:Label></h5>
+                    <h5> <asp:Label ID="profirstlastname2" runat="server" ><%#profirstlastname2%></asp:Label></h5>
+                      <h5> <asp:Label ID="twit" runat="server" class="fa fa-mail-reply-all">  <%#twit%> ></asp:Label></h5>
+                 <h5> <asp:Label ID="mob" runat="server" class="fa fa-mobile">  <%# mob%> ></asp:Label></h5>
 
                   <h6>
                                     <span><i class="icon_calendar"></i><asp:Label ID="lbdatetime1" runat="server"><%# lbdatetime1 %></asp:Label></span>
-                                    <span><i class="icon_clock_alt"></i><asp:Label ID="lbdatetime2" runat="server"><%# lbdatetime2 %></asp:Label></span>
                                     <span><i class="icon_pin_alt"></i><asp:Label ID="procity" runat="server"> <%# procity%></asp:Label></span>
                                 </h6>
                 </div>
-                <div class="col-lg-2 col-sm-6 follow-info weather-category">
-                  <ul>
-                    <li class="active">
-
-                      <i class="fa fa-comments fa-2x"> </i><br> Contrary to popular belief, Lorem Ipsum is not simply
-                    </li>
-
-                  </ul>
-                </div>
-                <div class="col-lg-2 col-sm-6 follow-info weather-category">
-                  <ul>
-                    <li class="active">
-
-                      <i class="fa fa-bell fa-2x"> </i><br> Contrary to popular belief, Lorem Ipsum is not simply
-                    </li>
-
-                  </ul>
-                </div>
-                <div class="col-lg-2 col-sm-6 follow-info weather-category">
-                  <ul>
-                    <li class="active">
-
-                      <i class="fa fa-tachometer fa-2x"> </i><br> Contrary to popular belief, Lorem Ipsum is not simply
-                    </li>
-
-                  </ul>
-                </div>
+                
               </div>
             </div>
           </div>
@@ -83,7 +55,7 @@
                                       </asp:LinkButton>
                   </li>
                   <li class="">
-                    <asp:LinkButton ID="editprofilebtn" runat="server"  Text="Edit Profile" class="icon-envelope" PostBackUrl="~/Editprofile.aspx">
+                    <asp:LinkButton ID="editprofilebtn" runat="server"  Text="Edit Profile" class="icon-envelope" PostBackUrl="~/PresentationLayer/Editprofile.aspx">
                                       </asp:LinkButton>
                   </li>
                 </ul>

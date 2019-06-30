@@ -25,7 +25,7 @@ namespace TSM_Project
             {
                 con.Open();
                 DataTable dt = new DataTable();
-                string strSqpQuery = "SELECT E.First_Name  + ' ' + E.Last_Name As UserName, E.Role_ID, E.Emp_ID, R.Role_name,E.Email  FROM Employee_Master_Table E JOIN Role_Table R ON R.Role_ID = E.Role_ID WHERE Email='" + txtloginname.Text + "' AND Password='" + txtpassword.Text + "'";
+                string strSqpQuery = "SELECT E.First_Name  + '' + E.Last_Name As UserName, E.Role_ID, E.Emp_ID, R.Role_name,E.Email  FROM Employee_Master_Table E JOIN Role_Table R ON R.Role_ID = E.Role_ID WHERE Email='" + txtloginname.Text + "' AND Password='" + txtpassword.Text + "'";
                 // string sqlroleid = ""; // "SELECT Role_ID, Emp_ID  FROM Employee_Master_Table WHERE User_Name='" + txtloginname.Text + "' AND Password='" + txtpassword.Text + "'";
                 // string sqlempid = ""; //"SELECT Emp_ID  FROM Employee_Master_Table WHERE User_Name='" + txtloginname.Text + "' AND Password='" + txtpassword.Text + "'";
                 AccessLayer ac = new AccessLayer();
@@ -46,6 +46,8 @@ namespace TSM_Project
                     Session["Role_Name"] = (dt.Rows[0]["Role_name"] != DBNull.Value) ? dt.Rows[0]["Role_name"] : "";
                     Session["Email"]= (dt.Rows[0]["Email"] != DBNull.Value) ? dt.Rows[0]["Email"] : "";
                     Response.Redirect("~/PresentationLayer/DashBoard.aspx");
+                   
+
                     //  con.Open();
                     //string sqlpassword = "SELECT Password FROM Employee_Master_Table WHERE User_Name='" + txtloginname.Text + "' ";
                     //SqlCommand passcmd = new SqlCommand(sqlpassword, con);
@@ -62,7 +64,7 @@ namespace TSM_Project
                 }
                 else
                 {
-                    lberror.Text = "Incorrect Password";
+                    lberror.Text = "Incorrect User name and Password";
 
                 }
             }

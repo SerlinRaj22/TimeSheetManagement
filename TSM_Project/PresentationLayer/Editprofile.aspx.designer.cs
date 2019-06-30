@@ -103,15 +103,6 @@ namespace TSM_Project {
         protected global::System.Web.UI.WebControls.Label lbdatetime1;
         
         /// <summary>
-        /// lbdatetime2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbdatetime2;
-        
-        /// <summary>
         /// procity control.
         /// </summary>
         /// <remarks>

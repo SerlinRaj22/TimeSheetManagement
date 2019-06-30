@@ -21,14 +21,13 @@ namespace TSM_Project
             string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
             using (SqlConnection con = new SqlConnection(cs))
             {
-                string sqlString = "SELECT First_Name,Last_Name,Email,Mobile_number,DOB,City FROM Employee_Master_Table WHERE User_Name='"+lbusername.Text+"' ";
+                string sqlString = "SELECT First_Name,Last_Name,Email,Mobile_number,DOB,City FROM Employee_Master_Table WHERE User_Name='" + lbusername.Text + "' ";
                 con.Open();
                 SqlCommand cmd = new SqlCommand(sqlString, con);
 
                 SqlDataReader sdr = cmd.ExecuteReader();
                 sdr.Read();
-                lbdatetime1.Text = DateTime.Now.ToString("dd,MM,yyyy");
-                    lbdatetime2.Text = DateTime.Now.ToString("hh:mm");
+                lbdatetime1.Text = sdr["DOB"].ToString();
                     proname1.Text = sdr["First_Name"].ToString();
                     proname2.Text = sdr["Last_Name"].ToString();
                     procity.Text = sdr["City"].ToString();

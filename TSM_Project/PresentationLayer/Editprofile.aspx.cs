@@ -20,10 +20,33 @@ namespace TSM_Project
             lbusername.Text = Session["User_Name"] as string;
             lbroleid.Text = Session["Role_ID"] as string;
             lbempid.Text = Session["Emp_ID"] as string;
-             populateLabel();
+            populateLabel();
             if (lbroleid.Text == "5")
             {
                 btnApprovepage.Visible = true;
+
+            }
+            if (!IsPostBack)
+            {
+                string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
+                using (SqlConnection con = new SqlConnection(cs))
+                {
+                    string sqlString = "SELECT First_Name,Last_Name,Email,Mobile_number,DOB,City,User_Name FROM Employee_Master_Table WHERE User_Name='" + lbusername.Text + "'";
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand(sqlString, con);
+
+                    SqlDataReader sdr = cmd.ExecuteReader();
+                    sdr.Read();
+                    txtfirstname.Text = sdr["First_Name"].ToString();
+                    txtlastname.Text = sdr["Last_Name"].ToString();
+                    txtCountry.Text = sdr["City"].ToString();
+                    txtmobile.Text = sdr["Mobile_number"].ToString();
+                    txtbirthday.Text = sdr["DOB"].ToString();
+                    txtmail.Text = sdr["Email"].ToString();
+                    lbusername.Text = sdr["User_Name"].ToString();
+
+                }
+
 
             }
 
@@ -40,8 +63,7 @@ namespace TSM_Project
                 SqlDataReader sdr = cmd.ExecuteReader();
                 sdr.Read();
 
-                lbdatetime1.Text = DateTime.Now.ToString("dd,MM,yyyy");
-                lbdatetime2.Text = DateTime.Now.ToString("hh:mm");
+                lbdatetime1.Text = sdr["DOB"].ToString();
                 proname1.Text = sdr["First_Name"].ToString();
                 proname2.Text = sdr["Last_Name"].ToString();
                 procity.Text = sdr["City"].ToString();
@@ -53,11 +75,16 @@ namespace TSM_Project
                 this.DataBind();
             }
         }
+        void populateprofile()
+        {
+            
+        }
         protected void btnsave_Click(object sender, EventArgs e)
         {
             string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
             using (SqlConnection con = new SqlConnection(cs))
             {
+               
                 string strFN = txtfirstname.Text;
                 string strLN = txtlastname.Text;
                 string strcity = txtCountry.Text;
@@ -71,18 +98,18 @@ namespace TSM_Project
                     errmsg = "*Please fill all required fields";
                 }
                 if (string.IsNullOrEmpty(errmsg)) { 
-                    string sqlString = "INSERT INTO ApproveTable(updatedFirst_name,updatedLast_name,updatedcity,updatedemail,updatedmobile,updatedDOB,UserName,Emp_ID) VALUES(@updatedFirst_name,@updatedLast_name,@updatedcity,@updatedemail,@updatedmobile,@updatedDOB,@UserName,@Emp_ID) ";
+                    string sqlString1 = "INSERT INTO ApproveTable(updatedFirst_name,updatedLast_name,updatedcity,updatedemail,updatedmobile,updatedDOB,UserName,Emp_ID) VALUES(@updatedFirst_name,@updatedLast_name,@updatedcity,@updatedemail,@updatedmobile,@updatedDOB,@UserName,@Emp_ID) ";
                     con.Open();
-                    SqlCommand cmd = new SqlCommand(sqlString, con);
-                    cmd.Parameters.AddWithValue("@Emp_ID", lbempid.Text);
-                    cmd.Parameters.AddWithValue("@updatedFirst_name", txtfirstname.Text);
-                    cmd.Parameters.AddWithValue("@updatedLast_name", txtlastname.Text);
-                    cmd.Parameters.AddWithValue("@updatedcity", txtCountry.Text);
-                    cmd.Parameters.AddWithValue("@updatedemail", txtmail.Text);
-                    cmd.Parameters.AddWithValue("@updatedmobile", txtmobile.Text);
-                    cmd.Parameters.AddWithValue("@updatedDOB", txtbirthday.Text);
-                    cmd.Parameters.AddWithValue("@UserName", lbusername.Text);
-                    cmd.ExecuteNonQuery();
+                    SqlCommand cmd1 = new SqlCommand(sqlString1, con);
+                    cmd1.Parameters.AddWithValue("@Emp_ID", lbempid.Text);
+                    cmd1.Parameters.AddWithValue("@updatedFirst_name", txtfirstname.Text);
+                    cmd1.Parameters.AddWithValue("@updatedLast_name", txtlastname.Text);
+                    cmd1.Parameters.AddWithValue("@updatedcity", txtCountry.Text);
+                    cmd1.Parameters.AddWithValue("@updatedemail", txtmail.Text);
+                    cmd1.Parameters.AddWithValue("@updatedmobile", txtmobile.Text);
+                    cmd1.Parameters.AddWithValue("@updatedDOB", txtbirthday.Text);
+                    cmd1.Parameters.AddWithValue("@UserName", lbusername.Text);
+                    cmd1.ExecuteNonQuery();
                      lbsuccess.Text = "Request Sent";
                 }else {
                     lberror.Text = errmsg;
@@ -135,7 +162,7 @@ namespace TSM_Project
 
         protected void btncancel_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Profile.aspx");
+            Response.Redirect("ViewProfile.aspx");
         }
 
         protected void btnApprovepage_Click(object sender, EventArgs e)

@@ -40,36 +40,8 @@
 
                   <h6>
                                     <span><i class="icon_calendar"></i><asp:Label ID="lbdatetime1" runat="server"><%# lbdatetime1 %></asp:Label></span>
-                                    <span><i class="icon_clock_alt"></i><asp:Label ID="lbdatetime2" runat="server"><%# lbdatetime2 %></asp:Label></span>
                                     <span><i class="icon_pin_alt"></i><asp:Label ID="procity" runat="server"> <%# procity%></asp:Label></span>
                                 </h6>
-                </div>
-                <div class="col-lg-2 col-sm-6 follow-info weather-category">
-                  <ul>
-                    <li class="active">
-
-                      <i class="fa fa-comments fa-2x"> </i><br> Contrary to popular belief, Lorem Ipsum is not simply
-                    </li>
-
-                  </ul>
-                </div>
-                <div class="col-lg-2 col-sm-6 follow-info weather-category">
-                  <ul>
-                    <li class="active">
-
-                      <i class="fa fa-bell fa-2x"> </i><br> Contrary to popular belief, Lorem Ipsum is not simply
-                    </li>
-
-                  </ul>
-                </div>
-                <div class="col-lg-2 col-sm-6 follow-info weather-category">
-                  <ul>
-                    <li class="active">
-
-                      <i class="fa fa-tachometer fa-2x"> </i><br> Contrary to popular belief, Lorem Ipsum is not simply
-                    </li>
-
-                  </ul>
                 </div>
               </div>
             </div>

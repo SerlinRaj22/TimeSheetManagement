@@ -13,7 +13,7 @@ namespace TSM_Project
 {
     public partial class WebForm2 : System.Web.UI.Page
     {
-       
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -21,7 +21,7 @@ namespace TSM_Project
                 populateEmpview();
             }
         }
-        void populateEmpview()
+        public void populateEmpview()
         {
             DataTable dt = new DataTable();
             string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
@@ -66,7 +66,7 @@ namespace TSM_Project
                         string Mobile = (EmpView.FooterRow.FindControl("Txtmobilefooter") as TextBox).Text.Trim();
                         string DOB = (EmpView.FooterRow.FindControl("TxtDOBfooter") as TextBox).Text.Trim();
                         string ErrMsg = "";
-                        if(string.IsNullOrEmpty(fisrtname)||string.IsNullOrEmpty(lastname) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(Mobile)||string.IsNullOrEmpty(DOB))
+                        if (string.IsNullOrEmpty(fisrtname) || string.IsNullOrEmpty(lastname) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(Mobile) || string.IsNullOrEmpty(DOB))
                         {
                             ErrMsg = ErrMsg + "Please fill all blank fields </br>";
                         }
@@ -91,7 +91,7 @@ namespace TSM_Project
                             lberror.Text = ErrMsg;
                         }
 
-                        
+
 
                     }
                 }
@@ -117,7 +117,7 @@ namespace TSM_Project
             populateEmpview();
         }
 
-        
+
         protected void EmpView_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             try
@@ -165,10 +165,10 @@ namespace TSM_Project
                     string sqlString = "DELETE FROM Employee_Master_Table  WHERE EMP_ID=@EMP_ID";
                     con.Open();
                     SqlCommand cmd = new SqlCommand(sqlString, con);
-                   
+
                     cmd.Parameters.AddWithValue("@EMP_ID", Convert.ToInt32(EmpView.DataKeys[e.RowIndex].Value.ToString()));
                     cmd.ExecuteNonQuery();
-                   
+
                     populateEmpview();
                     lbsuccess.Text = "Selected Record Deleted";
                     lberror.Text = "";
@@ -185,8 +185,31 @@ namespace TSM_Project
             }
 
         }
-
-       
     }
-
 }
+
+      // protected void EmpView_RowDataBound(object sender, GridViewRowEventArgs e)
+        //{
+          //  populateEmpview();
+           // string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
+            //using (SqlConnection con = new SqlConnection(cs))
+            //{
+              //  con.Open();
+                //var dropdown = (DropDownList)e.Row.FindControl("ddownlist");
+                //string sqlString = "SELECT Role_name FROM Role_Table";
+                //SqlCommand cmd = new SqlCommand(sqlString, con);
+                //SqlDataAdapter sda = new SqlDataAdapter(cmd);
+
+                //sda.Fill(dt);
+                //con.Close();
+                //dropdown.DataSource = dt;
+                //dropdown.DataTextField = "Select Role";
+                //dropdown.DataValueField = "Select Role";
+                //dropdown.DataBind();
+
+
+           // }
+        //}
+   // }
+
+//}

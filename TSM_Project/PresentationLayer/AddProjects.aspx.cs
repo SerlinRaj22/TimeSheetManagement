@@ -77,6 +77,7 @@ namespace TSM_Project
 
                         if (string.IsNullOrEmpty(ErrMsg))
                         {
+
                             if ((TScount <= 0))
                             {
 
@@ -97,7 +98,15 @@ namespace TSM_Project
                                 lberror.Text = "Project name already exist";
                             }
                         }
+                        else
+                        {
+
+                            lberror.Text = ErrMsg;
+
+                        }
                         con.Close();
+
+
                     }
                 }
 
@@ -169,7 +178,9 @@ namespace TSM_Project
                             lberror.Text = "Project name already exist";
                         }
                     }
+                    else { 
                     lberror.Text = ErrMsg;
+                    }
                     con.Close();
                         
 

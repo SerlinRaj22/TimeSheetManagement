@@ -41,8 +41,8 @@
                                         <asp:TextBox ID="Txtfisrtname" Text='<%# Eval("First_Name") %>' runat="server"></asp:TextBox>
                                     </EditItemTemplate>
                                     <FooterTemplate>
+                               <asp:RequiredFieldValidator ID="validatorfisrtname" runat="server" ControlToValidate="Txtfisrtnamefooter" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                                         <asp:TextBox ID="Txtfisrtnamefooter" runat="server"></asp:TextBox>
-
                                     </FooterTemplate>
                                 </asp:TemplateField>
 
@@ -55,8 +55,8 @@
                                     
                                     </EditItemTemplate>
                                     <FooterTemplate>
+         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="Txtlastnamefooter" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                                         <asp:TextBox ID="Txtlastnamefooter" runat="server"></asp:TextBox>
-
                                     </FooterTemplate>
                                 </asp:TemplateField>
 
@@ -68,7 +68,9 @@
                                         <asp:TextBox ID="Txtemail" Text='<%# Eval("Email") %>' runat="server"></asp:TextBox>
                                     </EditItemTemplate>
                                     <FooterTemplate>
-                                        <asp:TextBox ID="Txtemailfooter" runat="server"></asp:TextBox>
+ <asp:RequiredFieldValidator ID="validatoremail" runat="server" ControlToValidate="Txtemailfooter" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                                        <br />
+ <asp:TextBox ID="Txtemailfooter" runat="server"></asp:TextBox>
 
                                     </FooterTemplate>
                                 </asp:TemplateField>
@@ -81,7 +83,9 @@
                                         <asp:TextBox ID="Txtmobile" Text='<%# Eval("Mobile_number") %>' runat="server"></asp:TextBox>
                                     </EditItemTemplate>
                                     <FooterTemplate>
-                                        <asp:TextBox ID="Txtmobilefooter" runat="server"></asp:TextBox>
+         <asp:RequiredFieldValidator ID="validatormobile" runat="server" ControlToValidate="Txtmobilefooter" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+
+          <asp:TextBox ID="Txtmobilefooter" runat="server"></asp:TextBox>
 
                                     </FooterTemplate>
                                 </asp:TemplateField>
@@ -96,11 +100,11 @@
                                         <asp:TextBox ID="TxtDOB" Text='<%# Eval("DOB") %>' runat="server" TextMode="Date"></asp:TextBox>
                                     </EditItemTemplate>
                                     <FooterTemplate>
-                                        <asp:TextBox ID="TxtDOBfooter" runat="server" TextMode="Date"></asp:TextBox>
+          <asp:RequiredFieldValidator ID="validatordob" runat="server" ControlToValidate="TxtDOBfooter" ErrorMessage="*"></asp:RequiredFieldValidator>
 
+                                        <asp:TextBox ID="TxtDOBfooter" runat="server" TextMode="Date"></asp:TextBox>
                                     </FooterTemplate>
                                 </asp:TemplateField>
-
                                 <asp:TemplateField HeaderText="Actions">
                                     <ItemTemplate>
                                         <asp:ImageButton ID="imgbtnedit" ImageUrl="~/img/edit.jpg" CommandName="Edit" runat="server" ToolTip="Edit" Height="20px" Width="20px" />
@@ -120,8 +124,7 @@
                                 </asp:TemplateField>
                             </Columns>
                         </asp:GridView>
-                            <asp:ValidationSummary ID="valisummary" runat="server" ForeColor="Red" />
-                            </div>
+                             </div>
                         <br />
                         <asp:Label ID="lbsuccess" runat="server" ForeColor="Green"></asp:Label>
                         <br />
